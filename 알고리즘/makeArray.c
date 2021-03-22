@@ -10,7 +10,7 @@ void makeArray(int A[][COLS])
     for(int r=0;r<ROWS;r++)
     {
         for(int c=0;c<COLS;c++){
-            A[r][c] = rand % 100; //0부터 99사이
+            A[r][c] = rand() % 100; //0부터 99사이
         }
     }
 }
@@ -21,9 +21,9 @@ void printArray(int A[][COLS])
     {
         for(int c=0; c<COLS; c++)
         {
-            printf("%2d", A[r][c]);
+            printf("%3d", A[r][c]);
         }
-        printf("/n");
+        printf("\n");
     }
     
     printf("\n");
@@ -48,7 +48,7 @@ void findMatrix(int A[][COLS], int key)
   
   while(r<ROWS)
   {
-    index = findROW(A[r],key);
+    index = findRow(A[r],key);
     if(index>=0)
     {
       printf("%d행 %d열에서 %d발견\n", r, index, key);
@@ -63,7 +63,7 @@ void findMatrix(int A[][COLS], int key)
 void main()
 {
     int A[ROWS][COLS];
-    srand(time(NULL)); //난수발생
+    srand((int)time(NULL)); //난수발생
     makeArray(A);
     printArray(A);
   
